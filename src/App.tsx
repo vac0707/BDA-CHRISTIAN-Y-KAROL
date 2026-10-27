@@ -239,18 +239,18 @@ export default function App() {
       <div className={`transition-opacity duration-1000 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
         
         {/* 2. PORTADA HERO CINEMATOGRÁFICA (Texto ubicado abajo para no tapar los novios) */}
-        <section className="relative min-h-screen flex flex-col justify-end text-center px-4 pb-8 sm:pb-12 pt-32 overflow-hidden">
+        <section className="relative min-h-screen flex flex-col justify-end text-center px-4 pb-6 sm:pb-8 md:pb-6 pt-24 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img 
               src="https://res.cloudinary.com/inawqhes/image/upload/v1793066101/DSC00531.jpg.jpg" 
               alt="Boda Christian y Karol" 
-              className="w-full h-full object-cover object-[center_20%] sm:object-[center_25%]"
+              className="w-full h-full object-cover object-[center_20%] sm:object-[center_25%] md:object-[center_36%] lg:object-[center_40%]"
             />
             {/* Top delicate vignette so natural light remains on the couple */}
             <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-black/40 to-transparent"></div>
             
             {/* Bottom smooth dark gradient only where the text rests */}
-            <div className="absolute inset-x-0 bottom-0 h-3/5 sm:h-1/2 bg-gradient-to-t from-[#25150E] via-[#25150E]/85 via-55% to-transparent"></div>
+            <div className="absolute inset-x-0 bottom-0 h-3/5 sm:h-1/2 md:h-[45%] bg-gradient-to-t from-[#25150E] via-[#25150E]/85 via-55% to-transparent"></div>
           </div>
 
           <div className="relative z-10 max-w-2xl mx-auto w-full flex flex-col items-center">
@@ -258,7 +258,7 @@ export default function App() {
               Nuestra Boda
             </span>
 
-            <h2 className="font-serif-wedding text-4xl sm:text-6xl md:text-7xl font-light tracking-wide text-[#FAF7F2] drop-shadow-md leading-tight mb-2">
+            <h2 className="font-serif-wedding text-4xl sm:text-5xl md:text-6xl font-light tracking-wide text-[#FAF7F2] drop-shadow-md leading-tight mb-2">
               Christian <span className="font-script text-3xl sm:text-5xl text-[#C7AB93] mx-1 font-normal">&amp;</span> Karol
             </h2>
 
@@ -267,7 +267,7 @@ export default function App() {
             <p className="font-serif-wedding italic text-lg sm:text-2xl text-[#F5ECE1] tracking-wider mb-1 drop-shadow-sm">
               “Sábado, 28 de Noviembre del 2026”
             </p>
-            <p className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-[#C7AB93] font-medium mb-5">
+            <p className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-[#C7AB93] font-medium mb-4">
               2:30 PM · Capilla del Convento San Miguel
             </p>
 
