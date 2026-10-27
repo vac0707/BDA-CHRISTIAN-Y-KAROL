@@ -1,0 +1,8 @@
+{
+  "name": " Boda Christian y Karol",
+  "description": "Invitación virtual de boda interactiva, elegante y cinematográfica para Christian y Karol",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
