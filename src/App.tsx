@@ -9,21 +9,13 @@ import {
   Send, CheckCircle2, Users, Sparkles, Mail, MessageSquare, ChevronDown, 
   ExternalLink, Phone, Maximize2, X, ChevronLeft, ChevronRight, Copy, Check, Baby, Award
 } from 'lucide-react';
+import { CKMonogram } from './components/CKMonogram.tsx';
 
 const galleryPhotos = [
   { url: 'https://res.cloudinary.com/inawqhes/image/upload/v1793066101/DSC00583.jpg.jpg', title: 'Christian & Karol' },
   { url: 'https://res.cloudinary.com/inawqhes/image/upload/v1793066101/DSC00610.jpg.jpg', title: 'Momentos Especiales' },
   { url: 'https://res.cloudinary.com/inawqhes/image/upload/v1793066100/DSC00620.jpg.jpg', title: 'Nuestro Amor' },
   { url: 'https://res.cloudinary.com/inawqhes/image/upload/v1793066099/DSC00516.jpg.jpg', title: 'Compañeros de Vida' }
-];
-
-// Color palette extracted from the user moodboard
-const colorPalette = [
-  { name: 'Marrón Espresso', hex: '#352017', border: '#25150E' },
-  { name: 'Terracota Cálido', hex: '#965C3B', border: '#7C482A' },
-  { name: 'Arena Tostada', hex: '#C7AB93', border: '#AF9077' },
-  { name: 'Crema Champaña', hex: '#F5ECE1', border: '#DDCFC0' },
-  { name: 'Blanco Seda', hex: '#FFFFFF', border: '#E5DED4' },
 ];
 
 // Scroll Reveal Wrapper Component for smooth cinematic entrance
@@ -205,9 +197,9 @@ export default function App() {
               Estás Invitado A Nuestra Boda
             </p>
 
-            <h1 className="font-script text-6xl sm:text-7xl text-[#352017] mb-3 drop-shadow-sm">
-              C &amp; K
-            </h1>
+            <div className="my-4 flex items-center justify-center">
+              <CKMonogram className="w-28 sm:w-36 h-auto text-[#352017] transition-transform duration-500 hover:scale-105" />
+            </div>
 
             <div className="w-24 h-[1px] bg-[#965C3B]/60 mx-auto my-3"></div>
 
@@ -284,12 +276,18 @@ export default function App() {
         {/* BARRA DE NAVEGACIÓN */}
         <nav className="sticky top-0 z-40 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#C7AB93]/30 shadow-xs">
           <div className="max-w-5xl mx-auto px-4 flex items-center justify-between h-16">
-            <span className="font-script text-3xl text-[#965C3B] font-bold">C &amp; K</span>
+            <div className="flex items-center gap-2.5">
+              <CKMonogram className="w-9 sm:w-10 h-auto text-[#965C3B]" />
+              <span className="font-serif-wedding text-xl text-[#352017] tracking-wider font-light hidden sm:inline">
+                Christian &amp; Karol
+              </span>
+            </div>
             
-            <div className="hidden md:flex items-center gap-7 text-xs uppercase tracking-widest font-semibold text-[#352017]">
-              <a href="#padres" className="hover:text-[#965C3B] transition-colors">Nuestros Padres</a>
+            <div className="hidden md:flex items-center gap-6 text-xs uppercase tracking-widest font-semibold text-[#352017]">
+              <a href="#padres" className="hover:text-[#965C3B] transition-colors">Padres &amp; Padrinos</a>
               <a href="#calendario" className="hover:text-[#965C3B] transition-colors">Fecha</a>
               <a href="#ubicaciones" className="hover:text-[#965C3B] transition-colors">Ubicaciones</a>
+              <a href="#dress-code" className="hover:text-[#965C3B] transition-colors">Dress Code</a>
               <a href="#regalos" className="hover:text-[#965C3B] transition-colors">Regalos / Yape</a>
               <a href="#asistencia" className="hover:text-[#965C3B] transition-colors">Confirmar</a>
             </div>
@@ -311,13 +309,13 @@ export default function App() {
                 Con La Bendición De Dios Y
               </span>
               <h3 className="font-serif-wedding text-4xl sm:text-5xl text-[#352017] mb-4">
-                Nuestros Padres
+                Nuestros Padres, Padrinos &amp; Testigos
               </h3>
               <p className="text-stone-600 text-sm sm:text-base font-sans-wedding max-w-xl mx-auto mb-14 leading-relaxed">
                 Quienes nos dieron la vida, guiaron nuestros pasos con amor y hoy nos acompañan con su bendición en este nuevo camino.
               </p>
 
-              <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-10">
                 {/* Padres del Novio */}
                 <div className="bg-[#FFFEFB] rounded-2xl p-8 sm:p-10 shadow-sm border border-[#C7AB93]/40 relative overflow-hidden group hover:shadow-md transition-all">
                   <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#965C3B]"></div>
@@ -358,6 +356,47 @@ export default function App() {
                     <div className="w-12 h-[1px] bg-[#C7AB93]/50 mx-auto my-2"></div>
                     <p>
                       Silvia Taipe Chipa
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Padrinos & Testigos */}
+              <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                {/* Padrinos Boda Religiosa */}
+                <div className="bg-[#FFFEFB] rounded-2xl p-8 sm:p-10 shadow-sm border border-[#C7AB93]/40 relative overflow-hidden group hover:shadow-md transition-all">
+                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#965C3B]"></div>
+                  
+                  <span className="text-xs uppercase tracking-[0.25em] text-[#965C3B] font-semibold block mb-4">
+                    Padrinos de Boda Religiosa
+                  </span>
+
+                  <div className="space-y-3 font-serif-wedding text-2xl text-[#352017]">
+                    <p>
+                      Marco Cárdenas Valdivia
+                    </p>
+                    <div className="w-12 h-[1px] bg-[#C7AB93]/50 mx-auto my-2"></div>
+                    <p>
+                      Rosa Yaritza Pinto Hinojosa
+                    </p>
+                  </div>
+                </div>
+
+                {/* Testigos */}
+                <div className="bg-[#FFFEFB] rounded-2xl p-8 sm:p-10 shadow-sm border border-[#C7AB93]/40 relative overflow-hidden group hover:shadow-md transition-all">
+                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#C7AB93]"></div>
+                  
+                  <span className="text-xs uppercase tracking-[0.25em] text-[#965C3B] font-semibold block mb-4">
+                    Testigos
+                  </span>
+
+                  <div className="space-y-3 font-serif-wedding text-2xl text-[#352017]">
+                    <p>
+                      Darwin Torres Peña
+                    </p>
+                    <div className="w-12 h-[1px] bg-[#C7AB93]/50 mx-auto my-2"></div>
+                    <p>
+                      Shirley Carrasco Almandroz
                     </p>
                   </div>
                 </div>
@@ -581,35 +620,62 @@ export default function App() {
           </section>
         </RevealSection>
 
-        {/* 8. PALETA DE COLORES DE LA BODA & CÓDIGO DE VESTIMENTA */}
+        {/* 8. CÓDIGO DE VESTIMENTA (DRESS CODE) */}
         <RevealSection>
-          <section className="py-20 px-4 bg-[#F5ECE1]/40 border-t border-[#C7AB93]/30">
-            <div className="max-w-4xl mx-auto text-center">
+          <section id="dress-code" className="py-20 px-4 bg-[#F5ECE1]/40 border-t border-[#C7AB93]/30">
+            <div className="max-w-3xl mx-auto text-center">
               <span className="text-xs uppercase tracking-[0.3em] text-[#965C3B] font-bold block mb-2">
-                Código De Vestimenta &amp; Inspiración
+                Etiqueta
               </span>
               <h3 className="font-serif-wedding text-3xl sm:text-4xl text-[#352017] mb-3">
-                Paleta de Colores
+                Código de Vestimenta (Dress Code)
               </h3>
-              <p className="text-stone-600 text-sm max-w-md mx-auto mb-8 font-sans-wedding">
-                Traje formal / Elegante. Te compartimos la paleta de inspiración en tonos tierra cálidos para nuestro gran día:
+              <p className="text-stone-600 text-sm max-w-md mx-auto mb-10 font-sans-wedding">
+                Deseamos que este día sea inolvidable y celebremos todos de gala este gran momento.
               </p>
 
-              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 max-w-xl mx-auto">
-                {colorPalette.map((item, idx) => (
-                  <div key={idx} className="flex flex-col items-center gap-2 group">
-                    <div 
-                      className="w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-md transition-transform duration-300 group-hover:scale-110"
-                      style={{ 
-                        backgroundColor: item.hex,
-                        border: `2px solid ${item.border}`
-                      }}
-                    ></div>
-                    <span className="text-xs font-semibold text-[#352017]">
-                      {item.name}
-                    </span>
+              <div className="grid sm:grid-cols-2 gap-6 max-w-xl mx-auto mb-8">
+                {/* Caballeros */}
+                <div className="bg-[#FFFEFB] p-8 rounded-2xl shadow-xs border border-[#C7AB93]/40 flex flex-col items-center">
+                  <div className="w-14 h-14 rounded-full bg-[#965C3B]/10 text-[#965C3B] flex items-center justify-center mb-4">
+                    <Award className="w-7 h-7" />
                   </div>
-                ))}
+                  <h4 className="font-serif-wedding text-2xl text-[#352017] font-semibold mb-2">
+                    Caballeros
+                  </h4>
+                  <div className="w-10 h-[1px] bg-[#C7AB93]/60 mb-3"></div>
+                  <p className="text-sm font-semibold text-[#965C3B] uppercase tracking-wider mb-1">
+                    Con Terno
+                  </p>
+                  <p className="text-xs text-stone-500 font-sans-wedding">
+                    Traje formal / terno
+                  </p>
+                </div>
+
+                {/* Mujeres */}
+                <div className="bg-[#FFFEFB] p-8 rounded-2xl shadow-xs border border-[#C7AB93]/40 flex flex-col items-center">
+                  <div className="w-14 h-14 rounded-full bg-[#965C3B]/10 text-[#965C3B] flex items-center justify-center mb-4">
+                    <Sparkles className="w-7 h-7" />
+                  </div>
+                  <h4 className="font-serif-wedding text-2xl text-[#352017] font-semibold mb-2">
+                    Mujeres
+                  </h4>
+                  <div className="w-10 h-[1px] bg-[#C7AB93]/60 mb-3"></div>
+                  <p className="text-sm font-semibold text-[#965C3B] uppercase tracking-wider mb-1">
+                    Vestido
+                  </p>
+                  <p className="text-xs text-stone-500 font-sans-wedding">
+                    Vestido de fiesta elegante
+                  </p>
+                </div>
+              </div>
+
+              {/* Reserva de color blanco */}
+              <div className="bg-[#FFFEFB] border border-[#965C3B]/40 rounded-2xl p-5 max-w-lg mx-auto flex items-center justify-center gap-3 text-center shadow-xs">
+                <Heart className="w-5 h-5 text-[#965C3B] shrink-0" />
+                <p className="text-sm text-[#352017] font-sans-wedding leading-relaxed">
+                  Por favor, <strong className="text-[#965C3B]">reserva el color blanco</strong> exclusivamente para la novia.
+                </p>
               </div>
             </div>
           </section>
@@ -886,7 +952,7 @@ export default function App() {
             <div className="absolute inset-0 bg-[radial-gradient(#C7AB93_1px,transparent_1px)] [background-size:24px_24px] opacity-10"></div>
             
             <div className="relative max-w-xl mx-auto flex flex-col items-center">
-              <span className="font-script text-6xl text-[#C7AB93] mb-4">C &amp; K</span>
+              <CKMonogram className="w-24 sm:w-28 h-auto text-[#C7AB93] mb-4" />
               
               <div className="w-16 h-[1px] bg-[#C7AB93]/80 my-3"></div>
 
