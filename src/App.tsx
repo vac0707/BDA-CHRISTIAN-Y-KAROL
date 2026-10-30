@@ -69,8 +69,10 @@ export default function App() {
   const [rsvpStatus, setRsvpStatus] = useState<'yes' | 'no'>('yes');
   const [rsvpMessage, setRsvpMessage] = useState('');
 
-  // Copy to clipboard state for Yape
+  // Copy to clipboard state for Yape and Bank Accounts
   const [copiedYape, setCopiedYape] = useState(false);
+  const [copiedBcp, setCopiedBcp] = useState(false);
+  const [copiedCci, setCopiedCci] = useState(false);
 
   // Countdown timer state for November 28, 2026 at 14:30
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -127,6 +129,18 @@ export default function App() {
     navigator.clipboard.writeText('993039616');
     setCopiedYape(true);
     setTimeout(() => setCopiedYape(false), 2500);
+  };
+
+  const handleCopyBcp = () => {
+    navigator.clipboard.writeText('20012101675095');
+    setCopiedBcp(true);
+    setTimeout(() => setCopiedBcp(false), 2500);
+  };
+
+  const handleCopyCci = () => {
+    navigator.clipboard.writeText('00220011210167509545');
+    setCopiedCci(true);
+    setTimeout(() => setCopiedCci(false), 2500);
   };
 
   const handleWhatsAppRsvp = (e: React.FormEvent) => {
@@ -284,11 +298,11 @@ export default function App() {
             </div>
             
             <div className="hidden md:flex items-center gap-6 text-xs uppercase tracking-widest font-semibold text-[#352017]">
-              <a href="#padres" className="hover:text-[#965C3B] transition-colors">Padres &amp; Padrinos</a>
+              <a href="#padres" className="hover:text-[#965C3B] transition-colors">Nuestros Padres</a>
               <a href="#calendario" className="hover:text-[#965C3B] transition-colors">Fecha</a>
               <a href="#ubicaciones" className="hover:text-[#965C3B] transition-colors">Ubicaciones</a>
               <a href="#dress-code" className="hover:text-[#965C3B] transition-colors">Dress Code</a>
-              <a href="#regalos" className="hover:text-[#965C3B] transition-colors">Regalos / Yape</a>
+              <a href="#regalos" className="hover:text-[#965C3B] transition-colors">Regalos / Cuentas</a>
               <a href="#asistencia" className="hover:text-[#965C3B] transition-colors">Confirmar</a>
             </div>
 
@@ -309,7 +323,7 @@ export default function App() {
                 Con La Bendición De Dios Y
               </span>
               <h3 className="font-serif-wedding text-4xl sm:text-5xl text-[#352017] mb-4">
-                Nuestros Padres, Padrinos &amp; Testigos
+                Nuestros Padres
               </h3>
               <p className="text-stone-600 text-sm sm:text-base font-sans-wedding max-w-xl mx-auto mb-14 leading-relaxed">
                 Quienes nos dieron la vida, guiaron nuestros pasos con amor y hoy nos acompañan con su bendición en este nuevo camino.
@@ -505,7 +519,7 @@ export default function App() {
                 </div>
 
                 <a
-                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Christian+y+Karol&dates=20261128T193000Z/20261129T030000Z&details=Acompáñanos+a+celebrar+el+matrimonio+de+Christian+y+Karol.+Ceremonia:+Capilla+del+convento+San+Miguel.+Recepción:+Pachachaca,+Puente+colonial.&location=Capilla+del+convento+San+Miguel,+Urb.+Asuncion,+Prolongacion+Huancavelica"
+                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Christian+y+Karol&dates=20261128T193000Z/20261129T030000Z&details=Acompáñanos+a+celebrar+el+matrimonio+de+Christian+y+Karol.+Ceremonia:+Capilla+del+convento+San+Miguel.+Recepción:+Pachachaca+Inn,+Puente+colonial.&location=Capilla+del+convento+San+Miguel,+Urb.+Asuncion,+Prolongacion+Huancavelica"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#F5ECE1] hover:bg-[#EDE1D3] text-[#352017] transition-colors border border-[#C7AB93]/40"
@@ -554,11 +568,22 @@ export default function App() {
                       Urb. Asunción – Prolongación Huancavelica
                     </p>
 
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#FAF7F2] rounded-full text-sm font-medium text-[#352017] border border-[#C7AB93]/30">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#FAF7F2] rounded-full text-sm font-medium text-[#352017] border border-[#C7AB93]/30 mb-6">
                       <Clock className="w-4 h-4 text-[#965C3B]" />
                       <span>Hora: 2:30 PM (Puntual)</span>
                     </div>
                   </div>
+
+                  <a
+                    href="https://maps.app.goo.gl/Rb1TnTpkk14tiQKJ8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#965C3B] hover:bg-[#7F4C2F] text-white text-xs uppercase tracking-widest font-semibold rounded-xl shadow-xs transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+                  >
+                    <MapPin className="w-4 h-4" />
+                    <span>Ver Ubicación en Google Maps</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
                 </div>
 
                 {/* 2. Matrimonio Civil y Recepción */}
@@ -573,7 +598,7 @@ export default function App() {
                       Matrimonio Civil &amp; Recepción
                     </span>
                     <h4 className="font-serif-wedding text-3xl text-[#352017] mb-3">
-                      Pachachaca
+                      Pachachaca Inn
                     </h4>
                     <p className="text-stone-600 text-sm font-sans-wedding mb-4">
                       En Puente Colonial
@@ -697,41 +722,116 @@ export default function App() {
                 Lluvia de Sobres &amp; Regalos
               </h3>
 
-              <p className="text-stone-600 text-sm sm:text-base font-sans-wedding mb-8 max-w-md mx-auto leading-relaxed">
-                Tu presencia es nuestro mejor y más valioso regalo. Si deseas hacernos un presente en efectivo, tendremos un buzón para lluvia de sobres el día del evento, o puedes transferirnos mediante Yape:
+              <p className="text-stone-600 text-sm sm:text-base font-sans-wedding mb-8 max-w-lg mx-auto leading-relaxed">
+                Tu presencia es nuestro mejor y más valioso regalo. Cualquier obsequio será con mucho cariño bien recibido, o si deseas hacernos llegar tu presente por transferencia bancaria o Yape, ponemos a tu disposición nuestras cuentas:
               </p>
 
-              {/* Yape Card */}
-              <div className="bg-[#FAF7F2] p-6 rounded-2xl border border-[#C7AB93]/50 max-w-md mx-auto shadow-xs">
-                <div className="flex items-center justify-center gap-2 mb-3">
-                  <span className="bg-[#742284] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                    Yape
-                  </span>
-                  <span className="text-xs uppercase tracking-wider text-stone-500 font-semibold">
-                    Titular: Christian / Karol
-                  </span>
+              <div className="space-y-4 max-w-lg mx-auto">
+                {/* Yape Card */}
+                <div className="bg-[#FAF7F2] p-5 sm:p-6 rounded-2xl border border-[#C7AB93]/50 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                  <div>
+                    <div className="flex items-center justify-center sm:justify-start gap-2 mb-1">
+                      <span className="bg-[#742284] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                        Yape
+                      </span>
+                      <span className="text-xs text-stone-500 font-semibold">
+                        Christian &amp; Karol
+                      </span>
+                    </div>
+                    <div className="font-mono text-xl sm:text-2xl font-bold text-[#352017] tracking-wider">
+                      +51 993 039 616
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={handleCopyYape}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#965C3B] hover:bg-[#7F4C2F] text-white text-xs uppercase tracking-wider font-semibold rounded-full shadow-xs transition-all cursor-pointer shrink-0"
+                  >
+                    {copiedYape ? (
+                      <>
+                        <Check className="w-3.5 h-3.5 text-[#F5ECE1]" />
+                        <span>¡Copiado!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3.5 h-3.5" />
+                        <span>Copiar</span>
+                      </>
+                    )}
+                  </button>
                 </div>
 
-                <div className="font-mono text-2xl sm:text-3xl font-bold text-[#352017] tracking-wider my-3">
-                  +51 993 039 616
+                {/* BCP Soles Card */}
+                <div className="bg-[#FAF7F2] p-5 sm:p-6 rounded-2xl border border-[#C7AB93]/50 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                  <div>
+                    <div className="flex items-center justify-center sm:justify-start gap-2 mb-1">
+                      <span className="bg-[#002A8F] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                        BCP Soles
+                      </span>
+                      <span className="text-xs text-stone-500 font-semibold">
+                        Número de Cuenta
+                      </span>
+                    </div>
+                    <div className="font-mono text-lg sm:text-xl font-bold text-[#352017] tracking-wider select-all">
+                      20012101675095
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={handleCopyBcp}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#965C3B] hover:bg-[#7F4C2F] text-white text-xs uppercase tracking-wider font-semibold rounded-full shadow-xs transition-all cursor-pointer shrink-0"
+                  >
+                    {copiedBcp ? (
+                      <>
+                        <Check className="w-3.5 h-3.5 text-[#F5ECE1]" />
+                        <span>¡Copiado!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3.5 h-3.5" />
+                        <span>Copiar</span>
+                      </>
+                    )}
+                  </button>
                 </div>
 
-                <button
-                  onClick={handleCopyYape}
-                  className="mt-2 inline-flex items-center gap-2 px-6 py-2.5 bg-[#965C3B] hover:bg-[#7F4C2F] text-white text-xs uppercase tracking-wider font-semibold rounded-full shadow-sm transition-all cursor-pointer"
-                >
-                  {copiedYape ? (
-                    <>
-                      <Check className="w-4 h-4 text-[#F5ECE1]" />
-                      <span>¡Número Copiado!</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-4 h-4" />
-                      <span>Copiar Número de Yape</span>
-                    </>
-                  )}
-                </button>
+                {/* CCI Interbancaria Card */}
+                <div className="bg-[#FAF7F2] p-5 sm:p-6 rounded-2xl border border-[#C7AB93]/50 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                  <div>
+                    <div className="flex items-center justify-center sm:justify-start gap-2 mb-1">
+                      <span className="bg-[#556B52] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                        CCI
+                      </span>
+                      <span className="text-xs text-stone-500 font-semibold">
+                        Cuenta Interbancaria
+                      </span>
+                    </div>
+                    <div className="font-mono text-base sm:text-lg font-bold text-[#352017] tracking-wide select-all break-all">
+                      00220011210167509545
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={handleCopyCci}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#965C3B] hover:bg-[#7F4C2F] text-white text-xs uppercase tracking-wider font-semibold rounded-full shadow-xs transition-all cursor-pointer shrink-0"
+                  >
+                    {copiedCci ? (
+                      <>
+                        <Check className="w-3.5 h-3.5 text-[#F5ECE1]" />
+                        <span>¡Copiado!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3.5 h-3.5" />
+                        <span>Copiar</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              <div className="mt-6 text-xs text-stone-400 font-sans-wedding">
+                El día del evento también contaremos con buzón para lluvia de sobres.
               </div>
             </div>
           </section>
