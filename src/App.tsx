@@ -12,14 +12,10 @@ import {
 import { CKMonogram } from './components/CKMonogram.tsx';
 
 const galleryPhotos = [
-  { url: 'https://res.cloudinary.com/inawqhes/image/upload/v1793066101/DSC00583.jpg.jpg', title: 'Christian & Karol' },
-  { url: 'https://res.cloudinary.com/inawqhes/image/upload/v1793066101/DSC00610.jpg.jpg', title: 'Momentos Especiales' },
-  { url: 'https://res.cloudinary.com/inawqhes/image/upload/v1793066100/DSC00620.jpg.jpg', title: 'Nuestro Amor' },
-  { url: 'https://res.cloudinary.com/inawqhes/image/upload/v1793066099/DSC00516.jpg.jpg', title: 'Compañeros de Vida' },
-  { url: 'https://res.cloudinary.com/vsgbhmey/image/upload/v1793415231/IMG-20261030-WA0006.jpg', title: 'Miradas de Amor' },
-  { url: 'https://res.cloudinary.com/vsgbhmey/image/upload/v1793415231/IMG-20261030-WA0002.jpg', title: 'Juntos por Siempre' },
-  { url: 'https://res.cloudinary.com/vsgbhmey/image/upload/v1793415230/IMG-20261030-WA0007.jpg', title: 'Caminando Juntos' },
-  { url: 'https://res.cloudinary.com/vsgbhmey/image/upload/v1793415230/IMG-20261030-WA0005.jpg', title: 'Nuestra Historia' },
+  { url: 'https://res.cloudinary.com/vsgbhmey/image/upload/v1793415231/IMG-20261030-WA0006.jpg', title: 'Christian & Karol' },
+  { url: 'https://res.cloudinary.com/vsgbhmey/image/upload/v1793415231/IMG-20261030-WA0002.jpg', title: 'Momentos Especiales' },
+  { url: 'https://res.cloudinary.com/vsgbhmey/image/upload/v1793415230/IMG-20261030-WA0007.jpg', title: 'Nuestro Amor' },
+  { url: 'https://res.cloudinary.com/vsgbhmey/image/upload/v1793415230/IMG-20261030-WA0005.jpg', title: 'Compañeros de Vida' },
   { url: 'https://res.cloudinary.com/vsgbhmey/image/upload/v1793415229/IMG-20261030-WA0004.jpg', title: 'Felicidad Eterna' },
   { url: 'https://res.cloudinary.com/vsgbhmey/image/upload/v1793415207/IMG-20261030-WA0003.jpg', title: 'Promesa de Amor' }
 ];
