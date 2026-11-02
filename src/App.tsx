@@ -1005,8 +1005,6 @@ export default function App() {
                       >
                         <option value="1">1 persona (Solo yo)</option>
                         <option value="2">2 personas (Mi pareja y yo)</option>
-                        <option value="3">3 personas</option>
-                        <option value="4">4 personas</option>
                       </select>
                     </div>
                   )}
